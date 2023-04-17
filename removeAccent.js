@@ -239,13 +239,11 @@ var defaultDiacriticsRemovalMap = [
       /[\u007A\u24E9\uFF5A\u017A\u1E91\u017C\u017E\u1E93\u1E95\u01B6\u0225\u0240\u2C6C\uA763]/g,
   },
 ];
-var changes;
+
 function removeAccent(str) {
-  if (!changes) {
-    changes = defaultDiacriticsRemovalMap;
-  }
-  for (var i = 0; i < changes.length; i++) {
-    str = str.replace(changes[i].letters, changes[i].base);
+
+  for (var i = 0; i < defaultDiacriticsRemovalMap.length; i++) {
+    str = str.replace(defaultDiacriticsRemovalMap[i].letters, defaultDiacriticsRemovalMap[i].base);
   }
   return str;
 }
